@@ -1,5 +1,8 @@
-﻿using Foundation;
+﻿using Autofac;
+using Foundation;
 using UIKit;
+using WeatherSampleOne.Services.Contract.Common;
+using WeatherSampleOne.Services.Factory;
 
 namespace WeatherSampleOne.iOS
 {
@@ -16,6 +19,17 @@ namespace WeatherSampleOne.iOS
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
+
+
+            ServiceFactory.Create(builder =>
+            {
+                //builder.RegisterType<Telephony>().As<ITelephony>();
+                //builder.RegisterType<FileStore>().As<IFileStore>();
+                //builder.RegisterType<SQLite_iOS>().As<ISQLite>();
+                //builder.RegisterInstance(new ClientKeyProvider()).As<IClientKeyProvider>();
+            });
+
+
             return true;
         }
 

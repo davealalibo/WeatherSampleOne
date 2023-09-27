@@ -4,13 +4,27 @@ using System;
 
 using Foundation;
 using UIKit;
+using WeatherSampleOne.Services.Factory;
+using WeatherSampleOne.ViewModels;
 
 namespace WeatherSampleOne.iOS
 {
 	public partial class WeatherResultViewController : UIViewController
 	{
+		WeatherSearchViewModel viewModel;
+
 		public WeatherResultViewController (IntPtr handle) : base (handle)
 		{
-		}
-	}
+        }
+
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
+            // Perform any additional setup after loading the view, typically from a nib.
+
+            viewModel = ServiceFactory.Resolve<WeatherSearchViewModel>();
+
+
+        }
+    }
 }

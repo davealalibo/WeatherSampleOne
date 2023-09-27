@@ -37,6 +37,11 @@
         <WarningLevel>4</WarningLevel>
         <MtouchLink>None</MtouchLink>
         <MtouchArch>x86_64</MtouchArch>
+        <CodesignResourceRules></CodesignResourceRules>
+        <IOSDebuggerPort></IOSDebuggerPort>
+        <MtouchI18n></MtouchI18n>
+        <CrashReportingDelay>-1</CrashReportingDelay>
+        <OnDemandResourcesInitialInstallTags></OnDemandResourcesInitialInstallTags>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
         <DebugSymbols>true</DebugSymbols>
@@ -71,6 +76,9 @@
     </ItemGroup>
     <ItemGroup>
       <PackageReference Include="Xamarin.Essentials" Version="1.8.0" />
+      <PackageReference Include="Autofac">
+        <Version>7.1.0</Version>
+      </PackageReference>
     </ItemGroup>
     <ItemGroup>
         <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -143,6 +151,40 @@
         <Compile Include="WeatherResultViewController.designer.cs">
           <DependentUpon>WeatherResultViewController.cs</DependentUpon>
         </Compile>
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\WeatherSampleOne.Domain\WeatherSampleOne.Domain.csproj">
+        <Project>{3F4C3ADF-3A0E-40DE-86C7-E8D1F50239D7}</Project>
+        <Name>WeatherSampleOne.Domain</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\WeatherSampleOne.Config\WeatherSampleOne.Config.csproj">
+        <Project>{80276C11-C03B-43D1-AE00-61D8EC1ED44D}</Project>
+        <Name>WeatherSampleOne.Config</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\WeatherSampleOne.Services.Contract\WeatherSampleOne.Services.Contract.csproj">
+        <Project>{C0199990-6385-4362-9FC1-E9EBAB8607B3}</Project>
+        <Name>WeatherSampleOne.Services.Contract</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\WeatherSampleOne.Services.Factory\WeatherSampleOne.Services.Factory.csproj">
+        <Project>{B4C3A43E-E2F6-4260-86A3-B3CE298F7D3C}</Project>
+        <Name>WeatherSampleOne.Services.Factory</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\WeatherSampleOne.Services.Implementation\WeatherSampleOne.Services.Implementation.csproj">
+        <Project>{23A099B7-5518-41BF-B00A-4B532A594F73}</Project>
+        <Name>WeatherSampleOne.Services.Implementation</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\WeatherSampleOne.Services.Mock\WeatherSampleOne.Services.Mock.csproj">
+        <Project>{B286A2AB-9C17-43D4-9CA2-050A8FBE327A}</Project>
+        <Name>WeatherSampleOne.Services.Mock</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\WeatherSampleOne.Utils\WeatherSampleOne.Utils.csproj">
+        <Project>{51580A4A-6A57-4513-9FE5-64A052D05FA8}</Project>
+        <Name>WeatherSampleOne.Utils</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\WeatherSampleOne.ViewModels\WeatherSampleOne.ViewModels.csproj">
+        <Project>{75E2A047-7D30-41CD-8F5D-50311AB5F26A}</Project>
+        <Name>WeatherSampleOne.ViewModels</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

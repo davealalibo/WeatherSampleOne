@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WeatherSampleOne.Services.Contract\WeatherSampleOne.Services.Contract.csproj" />
+    <ProjectReference Include="..\WeatherSampleOne.Services.Implementation\WeatherSampleOne.Services.Implementation.csproj" />
+    <ProjectReference Include="..\WeatherSampleOne.Services.Mock\WeatherSampleOne.Services.Mock.csproj" />
+    <ProjectReference Include="..\WeatherSampleOne.Utils\WeatherSampleOne.Utils.csproj" />
+  </ItemGroup>
+</Project>

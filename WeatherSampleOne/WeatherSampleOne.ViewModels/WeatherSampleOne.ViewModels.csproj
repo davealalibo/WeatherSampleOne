@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WeatherSampleOne.Config\WeatherSampleOne.Config.csproj" />
+    <ProjectReference Include="..\WeatherSampleOne.Domain\WeatherSampleOne.Domain.csproj" />
+    <ProjectReference Include="..\WeatherSampleOne.Services.Contract\WeatherSampleOne.Services.Contract.csproj" />
+    <ProjectReference Include="..\WeatherSampleOne.Services.Implementation\WeatherSampleOne.Services.Implementation.csproj" />
+    <ProjectReference Include="..\WeatherSampleOne.Utils\WeatherSampleOne.Utils.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Autofac" />
+    <None Remove="FluentValidation" />
+    <None Remove="Microsoft.CSharp" />
+    <None Remove="Geocoding.Core" />
+    <None Remove="Geocoding.Google" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="7.1.0" />
+    <PackageReference Include="FluentValidation" Version="11.7.1" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+  </ItemGroup>
+</Project>
