@@ -122,7 +122,7 @@ namespace WeatherSampleOne.iOS
             catch (Exception ex)
             {
                 // Handle exception that may have occurred in geocoding
-                CityTextField.SetError("Sorry, an error occurred");
+                CityTextField.SetError("Sorry, an error occurred. Could not get the geo-location of the entered city. Please check and enter a valid city.");
                 Console.WriteLine(ex.Message);
             }
         }
