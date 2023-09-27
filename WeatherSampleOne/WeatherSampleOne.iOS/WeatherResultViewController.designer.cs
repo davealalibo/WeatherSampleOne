@@ -12,9 +12,39 @@ namespace WeatherSampleOne.iOS
 	[Register ("WeatherResultViewController")]
 	partial class WeatherResultViewController
 	{
+		[Outlet]
+		UIKit.UIButton GoBackButton { get; set; }
+
+		[Outlet]
+		UIKit.UIButton SaveCityAndGoBackButton { get; set; }
+
+		[Outlet]
+		UIKit.UILabel TemperaturesDescriptionLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel WeatherDescriptionLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (WeatherDescriptionLabel != null) {
+				WeatherDescriptionLabel.Dispose ();
+				WeatherDescriptionLabel = null;
+			}
+
+			if (TemperaturesDescriptionLabel != null) {
+				TemperaturesDescriptionLabel.Dispose ();
+				TemperaturesDescriptionLabel = null;
+			}
+
+			if (SaveCityAndGoBackButton != null) {
+				SaveCityAndGoBackButton.Dispose ();
+				SaveCityAndGoBackButton = null;
+			}
+
+			if (GoBackButton != null) {
+				GoBackButton.Dispose ();
+				GoBackButton = null;
+			}
 		}
 	}
 }

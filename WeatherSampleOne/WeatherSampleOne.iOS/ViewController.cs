@@ -25,21 +25,12 @@ namespace WeatherSampleOne.iOS
         {
             base.ViewWillAppear(animated);
             this.NavigationController.SetNavigationBarHidden(true, false);
-            //this.NavigationController.NavigationBarHidden = true;
-
-            string savedFavouriteCity = Preferences.Get(Constants.FAVOURITE_CITY, "");
-            if (!string.IsNullOrEmpty(savedFavouriteCity))
-            {
-                CityTextField.Text = savedFavouriteCity;
-                viewModel.TheWeatherRequest.City = savedFavouriteCity;
-            }
         }
 
         public override void ViewWillDisappear(bool animated)
         {
             base.ViewWillDisappear(animated);
             this.NavigationController.SetNavigationBarHidden(false, false);
-            //this.NavigationController.NavigationBarHidden = false;
         }
 
         public override void ViewDidLoad ()
@@ -49,6 +40,13 @@ namespace WeatherSampleOne.iOS
 
             viewModel = ServiceFactory.Resolve<WeatherSearchViewModel>();
             viewModel.TheWeatherRequest = new WeatherRequest();
+
+            string savedFavouriteCity = Preferences.Get(Constants.FAVOURITE_CITY, "");
+            if (!string.IsNullOrEmpty(savedFavouriteCity))
+            {
+                CityTextField.Text = savedFavouriteCity;
+                viewModel.TheWeatherRequest.City = savedFavouriteCity;
+            }
 
             CityTextField.EditingChanged += CityTextField_EditingChanged;
 
