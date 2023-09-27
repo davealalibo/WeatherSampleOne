@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherSampleOne.Services.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherSampleOne.Utils", "WeatherSampleOne.Utils\WeatherSampleOne.Utils.csproj", "{51580A4A-6A57-4513-9FE5-64A052D05FA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherSampleOne.UnitTests", "WeatherSampleOne.UnitTests\WeatherSampleOne.UnitTests.csproj", "{EAE8A045-85DC-4E76-AD62-C3A2D48CDD1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -101,6 +103,14 @@ Global
 		{51580A4A-6A57-4513-9FE5-64A052D05FA8}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{51580A4A-6A57-4513-9FE5-64A052D05FA8}.Release|iPhone.ActiveCfg = Release|Any CPU
 		{51580A4A-6A57-4513-9FE5-64A052D05FA8}.Release|iPhone.Build.0 = Release|Any CPU
+		{EAE8A045-85DC-4E76-AD62-C3A2D48CDD1A}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{EAE8A045-85DC-4E76-AD62-C3A2D48CDD1A}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{EAE8A045-85DC-4E76-AD62-C3A2D48CDD1A}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{EAE8A045-85DC-4E76-AD62-C3A2D48CDD1A}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{EAE8A045-85DC-4E76-AD62-C3A2D48CDD1A}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{EAE8A045-85DC-4E76-AD62-C3A2D48CDD1A}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{EAE8A045-85DC-4E76-AD62-C3A2D48CDD1A}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{EAE8A045-85DC-4E76-AD62-C3A2D48CDD1A}.Release|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
