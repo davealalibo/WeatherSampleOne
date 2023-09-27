@@ -28,7 +28,7 @@ namespace WeatherSampleOne.Services.Factory
         public static void Create(Action<ContainerBuilder> builderConfig)
         {
             builder = new ContainerBuilder();
-#if !DEBUG
+#if DEBUG
 
             //Globals.IsMockData = true;
             //***************************************
