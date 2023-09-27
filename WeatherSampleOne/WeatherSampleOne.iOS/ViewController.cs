@@ -88,6 +88,7 @@ namespace WeatherSampleOne.iOS
 
         private async void GetGeolocationFromCity()
         {
+            string theMessage = string.Empty;
             try
             {
                 var locations = await Xamarin.Essentials.Geocoding.GetLocationsAsync(viewModel.TheWeatherRequest.City);
@@ -104,26 +105,34 @@ namespace WeatherSampleOne.iOS
                     }
                     else
                     {
-                        CityTextField.SetError(string.Join("\n", viewModel.Errors.Values));
+                        theMessage = string.Join("\n", viewModel.Errors.Values);
+                        CityTextField.SetError(theMessage);
+                        ShowErrorMessage(theMessage);
                     }
 
                 }
                 else
                 {
-                    CityTextField.SetError("Could not get the geo-location of the entered city");
+                    theMessage = "Could not get the geo-location of the entered city";
+                    CityTextField.SetError(theMessage);
+                    ShowErrorMessage(theMessage);
                 }
             }
             catch (FeatureNotSupportedException fnsEx)
             {
                 // Feature not supported on device
-                CityTextField.SetError("Geocoding not support on this device");
+                theMessage = "Geocoding not support on this device";
+                CityTextField.SetError(theMessage);
                 Console.WriteLine(fnsEx.Message);
+                ShowErrorMessage(theMessage);
             }
             catch (Exception ex)
             {
                 // Handle exception that may have occurred in geocoding
-                CityTextField.SetError("Sorry, an error occurred. Could not get the geo-location of the entered city. Please check and enter a valid city.");
+                theMessage = "Sorry, an error occurred. Could not get the geo-location of the entered city. Please check and enter a valid city.";
+                CityTextField.SetError(theMessage);
                 Console.WriteLine(ex.Message);
+                ShowErrorMessage(theMessage);
             }
         }
 
@@ -149,6 +158,9 @@ namespace WeatherSampleOne.iOS
             {
                 Console.WriteLine(viewModel.TheWeatherResponse);
                 Console.WriteLine(obj);
+
+                PerformSegue("WeatherResultSegue", this);
+
             });
         }
 
@@ -156,8 +168,16 @@ namespace WeatherSampleOne.iOS
         {
             InvokeOnMainThread(() =>
             {
-                CityTextField.SetError(obj?.ConcatenatedErrors);
+                ShowErrorMessage(obj?.ConcatenatedErrors);
             });
+        }
+
+        private void ShowErrorMessage(string message)
+        {
+            // Display an alert with the error message
+            var alert = UIAlertController.Create("Error", message, UIAlertControllerStyle.Alert);
+            alert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+            PresentViewController(alert, true, null);
         }
     }
 }
