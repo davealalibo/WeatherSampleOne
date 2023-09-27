@@ -10,10 +10,25 @@ namespace WeatherSampleOne.iOS
         {
         }
 
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            this.NavigationController.SetNavigationBarHidden(true, false);
+            //this.NavigationController.NavigationBarHidden = true;
+        }
+
+        public override void ViewWillDisappear(bool animated)
+        {
+            base.ViewWillDisappear(animated);
+            this.NavigationController.SetNavigationBarHidden(false, false);
+            //this.NavigationController.NavigationBarHidden = false;
+        }
+
         public override void ViewDidLoad ()
         {
             base.ViewDidLoad ();
             // Perform any additional setup after loading the view, typically from a nib.
+
         }
 
         public override void DidReceiveMemoryWarning ()
