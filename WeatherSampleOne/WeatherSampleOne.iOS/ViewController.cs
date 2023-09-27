@@ -52,6 +52,10 @@ namespace WeatherSampleOne.iOS
 
             CityTextField.EditingChanged += CityTextField_EditingChanged;
 
+
+            SearchButton.SetTitle("Search Weather Info", UIControlState.Normal);
+            SearchButton.SetTitle("Please wait...", UIControlState.Disabled);
+
             SearchButton.TouchUpInside += SearchButton_TouchUpInside;
 
         }
@@ -89,6 +93,8 @@ namespace WeatherSampleOne.iOS
         private async void GetGeolocationFromCity()
         {
             string theMessage = string.Empty;
+            SearchButton.Enabled = false;
+
             try
             {
                 var locations = await Xamarin.Essentials.Geocoding.GetLocationsAsync(viewModel.TheWeatherRequest.City);
@@ -105,6 +111,7 @@ namespace WeatherSampleOne.iOS
                     }
                     else
                     {
+                        SearchButton.Enabled = true;
                         theMessage = string.Join("\n", viewModel.Errors.Values);
                         CityTextField.SetError(theMessage);
                         ShowErrorMessage(theMessage);
@@ -113,6 +120,7 @@ namespace WeatherSampleOne.iOS
                 }
                 else
                 {
+                    SearchButton.Enabled = true;
                     theMessage = "Could not get the geo-location of the entered city";
                     CityTextField.SetError(theMessage);
                     ShowErrorMessage(theMessage);
@@ -120,6 +128,7 @@ namespace WeatherSampleOne.iOS
             }
             catch (FeatureNotSupportedException fnsEx)
             {
+                SearchButton.Enabled = true;
                 // Feature not supported on device
                 theMessage = "Geocoding not support on this device";
                 CityTextField.SetError(theMessage);
@@ -128,6 +137,7 @@ namespace WeatherSampleOne.iOS
             }
             catch (Exception ex)
             {
+                SearchButton.Enabled = true;
                 // Handle exception that may have occurred in geocoding
                 theMessage = "Sorry, an error occurred. Could not get the geo-location of the entered city. Please check and enter a valid city.";
                 CityTextField.SetError(theMessage);
@@ -156,6 +166,8 @@ namespace WeatherSampleOne.iOS
         {
             InvokeOnMainThread(() =>
             {
+                SearchButton.Enabled = true;
+
                 Console.WriteLine(viewModel.TheWeatherResponse);
                 Console.WriteLine(obj);
 
@@ -168,6 +180,8 @@ namespace WeatherSampleOne.iOS
         {
             InvokeOnMainThread(() =>
             {
+                SearchButton.Enabled = true;
+
                 ShowErrorMessage(obj?.ConcatenatedErrors);
             });
         }
