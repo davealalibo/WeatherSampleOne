@@ -23,14 +23,13 @@ namespace WeatherSampleOne.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
 
             viewModel = ServiceFactory.Resolve<WeatherSearchViewModel>();
 
             if (viewModel.TheWeatherResponse != null)
             {
-                List<string> theDescriptions = viewModel.TheWeatherResponse.Weather?.Select(s => s.Description).ToList();
                 //WeatherDescriptionLabel.Text = $"{viewModel.TheWeatherResponse.Weather?.FirstOrDefault()?.Description}";
+                List<string> theDescriptions = viewModel.TheWeatherResponse.Weather?.Select(s => s.Description).ToList();
                 WeatherDescriptionLabel.Text = $"{string.Join("\n", theDescriptions)}";
                 TemperaturesDescriptionLabel.Text = $"{viewModel.TheWeatherResponse.Main.Temp}K";
             }
