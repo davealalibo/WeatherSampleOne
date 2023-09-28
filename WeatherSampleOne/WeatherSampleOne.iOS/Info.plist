@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>WeatherSampleOne.iOS</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.wemabank.alat.office</string>
+	<string>com.davealalibo.WeatherSampleOne</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
