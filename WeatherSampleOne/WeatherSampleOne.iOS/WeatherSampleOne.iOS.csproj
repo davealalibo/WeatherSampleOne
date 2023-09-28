@@ -64,7 +64,8 @@
         <WarningLevel>4</WarningLevel>
         <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
         <MtouchArch>ARM64</MtouchArch>
-        <CodesignKey>iPhone Developer</CodesignKey>
+        <CodesignKey>iPhone Distribution</CodesignKey>
+        <CodesignProvision>Automatic</CodesignProvision>
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="System" />
@@ -123,6 +124,11 @@
         <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
             <Visible>false</Visible>
         </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\weatherlogo.imageset\weather-2371967_640%401x.png" />
+        <ImageAsset Include="Assets.xcassets\weatherlogo.imageset\weather-2371967_640%403x.png" />
+        <ImageAsset Include="Assets.xcassets\weatherlogo.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\weatherlogo.imageset\weather-2371967_640%402x.png" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Resources\" />
