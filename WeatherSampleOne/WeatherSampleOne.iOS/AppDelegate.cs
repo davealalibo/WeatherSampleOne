@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Foundation;
+using Hackiftekhar.IQKeyboardManager.Xamarin;
 using UIKit;
 using WeatherSampleOne.Services.Contract.Common;
 using WeatherSampleOne.Services.Factory;
@@ -20,6 +21,7 @@ namespace WeatherSampleOne.iOS
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
 
+            IQKeyboardManager.SharedManager().Enable = true;
 
             ServiceFactory.Create(builder =>
             {
