@@ -29,7 +29,6 @@ namespace WeatherSampleOne.iOS
                 //builder.RegisterInstance(new ClientKeyProvider()).As<IClientKeyProvider>();
             });
 
-
             return true;
         }
 

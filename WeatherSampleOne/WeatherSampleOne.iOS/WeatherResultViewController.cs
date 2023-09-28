@@ -29,7 +29,7 @@ namespace WeatherSampleOne.iOS
             if (viewModel.TheWeatherResponse != null)
             {
                 WeatherDescriptionLabel.Text = $"{viewModel.TheWeatherResponse.Weather?.FirstOrDefault()?.Description}";
-                TemperaturesDescriptionLabel.Text = $"{viewModel.TheWeatherResponse.Main.Temp}°F";
+                TemperaturesDescriptionLabel.Text = $"{viewModel.TheWeatherResponse.Main.Temp}K";
             }
             SaveCityAndGoBackButton.TouchUpInside += SaveCityAndGoBackButton_TouchUpInside;
             GoBackButton.TouchUpInside += GoBackButton_TouchUpInside;
