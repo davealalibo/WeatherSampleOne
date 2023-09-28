@@ -17,11 +17,11 @@ namespace WeatherSampleOne.Services.Implementation.Base
             {
                 config.BeforeCall += (HttpCall call) =>
                 {
-                    
+                    //You can add some logic here such as appending tokens before the call is made.
                 };
                 config.AfterCall += (HttpCall call) =>
                 {
-                   
+                   //You can also add some logic here after the call is made
                 };
             });
         }
@@ -292,49 +292,6 @@ namespace WeatherSampleOne.Services.Implementation.Base
             }
         }
 
-        //internal async Task UploadByteArray<T>(UploadRequest request, Action<T> onSuccess, Action<ApiError> onError)
-        //{
-        //    try
-        //    {
-        //        var response = await new Url(request.Path)
-        //            .WithTimeout(Constants.UploadTimeout)
-        //            .WithHeaders(request.Headers)
-        //            .WithCookies(request.Cookies)
-        //            .PostMultipartAsync(mp =>
-        //            {
-        //                foreach (var file in request.Files)
-        //                {
-        //                    using (MemoryStream stream = new MemoryStream(file.FileData))
-        //                    {
-        //                        mp.AddFile(file.Name, stream, file.FileName, file.MediaType);
-        //                    }
-        //                }
-
-        //                if (request.Payload != null)
-        //                {
-        //                    foreach (var item in request.Payload)
-        //                    {
-        //                        if (item.Value != null) mp.AddString(item.Key, item.Value);
-        //                    }
-        //                }
-        //            }).ReceiveJson<T>();
-        //        onSuccess?.Invoke(response);
-        //    }
-        //    catch (FlurlHttpException flEx)
-        //    {
-        //        await HandleHttpError(onError, flEx);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        HandleError(onError, ex);
-        //    }
-        //}
-
-        private async Task<string> HandleHttpError(FlurlHttpException ex)
-        {
-            return await HandleHttpError(null, ex);
-        }
-
         private async Task<string> HandleHttpError(Action<ApiError> onError, FlurlHttpException ex)
         {
             ApiError error = new ApiError() { StatusCode = ex.Call.HttpStatus };
@@ -369,10 +326,6 @@ namespace WeatherSampleOne.Services.Implementation.Base
                     error.Message = "Oops! Something went wrong. Please try again.";
 
                 }
-                //else if (ex.Call.Response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                //{
-                //    error.Title = "We can't find the resource you are looking for.";
-                //}
                 else if (ex.Call.Response.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable)
                 {
                     error.Message = "We are sorry. The server is currently unavailable. Please try again later.";

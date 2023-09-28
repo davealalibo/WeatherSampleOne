@@ -12,6 +12,7 @@ namespace WeatherSampleOne.iOS
             // you can specify it here.
             //UIApplication.Main(args, null, typeof(AppDelegate));
 
+            //Adjusted here to enable trapping crashes while debugging
             try
             {
                 UIApplication.Main(args, null, typeof(AppDelegate));
