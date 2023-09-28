@@ -25,8 +25,6 @@ namespace WeatherSampleOne.iOS
             {
                 //builder.RegisterType<Telephony>().As<ITelephony>();
                 //builder.RegisterType<FileStore>().As<IFileStore>();
-                //builder.RegisterType<SQLite_iOS>().As<ISQLite>();
-                //builder.RegisterInstance(new ClientKeyProvider()).As<IClientKeyProvider>();
             });
 
             return true;
