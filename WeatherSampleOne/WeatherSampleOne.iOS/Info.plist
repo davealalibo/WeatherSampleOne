@@ -4,8 +4,6 @@
 <dict>
 	<key>CFBundleDisplayName</key>
 	<string>WeatherSampleOne.iOS</string>
-	<key>CFBundleIdentifier</key>
-	<string>com.davealalibo.WeatherSampleOne</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -60,5 +58,7 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.davealalibo.WeatherSampleOne</string>
 </dict>
 </plist>
